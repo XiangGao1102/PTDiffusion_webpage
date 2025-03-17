@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180733097-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-180733097-1');
+</script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PTDiffusion: Free Lunch for Generating Optical Illusion Hidden Pictures with Phase-Transferred Diffusion Model</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  </head>
+
+  <style>
+  .section-title {
+    font-family: "Lato"
+  }
+  .authors {
+    font-family: "Lato";
+  }
+  h1, h2, h3, h4, h5, h6, p {
+    font-family: "Lato";
+  }
+  .pub-highlight {
+    color: #e83015;
+    font-family: monaco;
+  }
+  </style>
+  
+
+<!-- cover -->
+  <section>
+    <div class="jumbotron text-center mt-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2 style="font-family: Lato;">PTDiffusion: Free Lunch for Generating Optical Illusion Hidden Pictures with Phase-Transferred Diffusion Model</h2->
+            <h4 style="color:#5a6268;">CVPR 2025</h4>
+            <!--<div class="pub-highlight">Ranks 1st on Sintel Optical Flow benchmark on Mar. 17th, 2022 </div>-->
+            <hr>
+            <h6> <a href="https://xianggao1102.github.io/PTDiffusion_webpage/" target="_blank">Xiang Gao</a>, &nbsp;&nbsp;&nbsp;
+                 Shuai Yang, &nbsp;&nbsp;&nbsp;
+                 Jiaying Liu
+            	  <p>
+                    Wangxuan Institute of Computer Technology, Peking University <br>
+                    {gaoxiang1102, williamyang, liujiaying}@pku.edu.cn
+                </p>
+            <div class="row justify-content-center">
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/pdf/2503.06186"  target="_blank">
+                    <i class="fa fa-file"></i>Paper</a> </p>
+              </div>
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="PTDiffusion_supp.pdf" role="button"  target="_blank">
+                    <i class="fa fa-file"></i>Supplement</a> </p>
+              </div>
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/XiangGao1102/PTDiffusion" role="button"  target="_blank">
+                    <i class="fa fa-github-alt"></i>Code</a> </p>
+              </div>
+              <!-- <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://zjueducn-my.sharepoint.com/:f:/g/personal/pengsida_zju_edu_cn/Eo9zn4x_xcZKmYHZNjzel7gBdWf_d4m-pISHhPWB-GZBYw?e=Hf4mz7" role="button">
+                    <i class="fa fa-database"></i> Data</a> </p>
+              </div> -->
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <hr style="margin-top:0px">
+                <img class="img-fluid" src="img/teaser.jpg" alt="teaser" width="100%">
+<p class="text-justify">Taking the first image on the left as an example, what do you see at your first glance? A painting of a path through a forest (zoom
+in for a detailed look), or a human face (zoom out for a more global view)? Based on the off-the-shelf text-to-image diffusion model,
+we contribute a plug-and-play method that naturally dissolves a reference image (shown in the bottom-right corner) into arbitrary scenes
+described by a text prompt, providing a free lunch for synthesizing optical illusion hidden pictures using diffusion model. Better viewed with zoom-in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br><br><br>
+
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h3>Abstract</h3>
+            <hr style="margin-top:0px">
+          <p class="text-justify">
+            Optical illusion hidden picture is an interesting visual perceptual phenomenon where an image is cleverly integrated into another picture in a way that is not immediately obvious to the viewer. Established on the off-the-shelf text-toimage (T2I) diffusion model, we propose a novel trainingfree text-guided image-to-image (I2I) translation framework dubbed as <strong>P</strong>hase-<strong>T</strong>ransferred <strong>Diffusion</strong> Model (PTDiffusion) for hidden art syntheses. PTDiffusion embeds an input reference image into arbitrary scenes as described by the text prompts, while exhibiting hidden visual cues of the reference image. At the heart of our method is a plug-andplay phase transfer mechanism that dynamically and progressively transplants diffusion features’ phase spectrum from the denoising process to reconstruct the reference image into the one to sample the generated illusion image, realizing harmonious fusion of the reference structural information and the textual semantic information. Furthermore, we propose asynchronous phase transfer to enable flexible control to the degree of hidden content discernability. Our method bypasses any model training and fine-tuning, all while substantially outperforming related methods in image quality, text fidelity, visual discernibility, and contextual naturalness for illusion picture synthesis, as demonstrated by extensive qualitative and quantitative experiments.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br><br><br>
+ 
+  
+  
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h3>Overall Method</h3>
+            <hr style="margin-top:0px">
+                <img class="img-fluid" src="img/method_oveview.jpg" alt="method" width="100%">
+        </div>
+      </div>
+    </div>
+  </section>
+  <br><br><br>
+  
+  
+   <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h3>Contributions</h3>
+            <hr style="margin-top:0px">
+            <p class="text-justify">
+			(1) We pioneer generating optical illusion hidden pictures from the perspective of text-guided I2I translation. <br><br>
+			(2) We propose a concise and elegant method that realizes deep fusion of image structure and text semantics via dynamic phase manipulation in the LDM feature space, producing contextually harmonious illusion pictures. <br><br>
+			(3) We propose asynchronous phase transfer to enable flexible control over the degree of hidden image discernibility. <br><br>
+			(4) Our method dispenses with any training and optimization process, providing a free lunch for synthesizing illusion pictures using off-the-shelf T2I diffusion model.
+        </div>
+      </div>
+    </div>
+  </section>
+  <br><br><br>
+  
+  
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h3>Results</h3>
+            <hr style="margin-top:0px">
+            <p class="text-justify">Below are showcased example results of our method in generating illusion pictures. Our method harmoniously dissolves a reference image into arbitrary scenes described by a text prompt. The produced results are both semantically faithful to the text prompt (zoom in for a detailed look) and structurally perceptible of the hidden reference image (zoom out
+for a more global view).</p>
+                <img class="img-fluid" src="img/qualitative_result.jpg" alt="example qualitative results" width="100%">
+        </div>
+      </div>
+    </div>
+  </section>
+  <br><br><br><br>
+  
+  
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <hr style="margin-top:0px">
+            <p class="text-justify"> Our method allows to sample diverse illusion pictures with both fixed reference image and text prompt. Better viewed with zoom-in.</p>
+                <img class="img-fluid" src="img/diversity.jpg" alt="example qualitative results" width="100%">
+                <br><br><br>
+            <p class="text-justify"> Diversified sampling results for generating artistic paintings.</p>
+                <img class="img-fluid" src="img/diversity_painting.jpg" alt="example qualitative results" width="80%">
+        </div>
+      </div>
+    </div>
+  </section>
+  <br><br><br><br>
+  
+  
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <hr style="margin-top:0px">
+            <p class="text-justify"> Qualitative comparison to related text-guided I2I and controllable T2I methods on generating optical illusion hidden pictures. Our PTDiffusion is
+the only one among the compared methods that realizes harmonious structural-semantic blending, producing visually appealing illusion pictures manifesting both precise textual semantics and clearly discernible hidden content.</p>
+                <img class="img-fluid" src="img/compare.jpg" alt="example qualitative results" width="100%">
+        </div>
+      </div>
+    </div>
+  </section>
+  <br><br><br><br>
+  
+  
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <hr style="margin-top:0px">
+            <p class="text-justify"> Qualitative ablation study of the kernel ingredients of our method.</p>
+                <img class="img-fluid" src="img/ablation.jpg" alt="example qualitative results" width="90%">
+        </div>
+      </div>
+    </div>
+  </section>
+  <br><br><br><br>
+  
+  
+  
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <hr style="margin-top:0px">
+            <p class="text-justify"> Demonstration of the hidden content discernibility control of our method realized by varying the async distance parameter &nbsp;<i>d</i> &nbsp; in the asynchronous phase transfer module (APTM).</p>
+                <img class="img-fluid" src="img/APTM.jpg" alt="example qualitative results" width="100%">
+                <br><br><br><br>
+                <p class="text-justify"> More examples of hidden content discernibility control of our method realized by varying the async distance parameter <i>d</i>.</p>
+                <img class="img-fluid" src="img/async_distance.jpg" alt="example qualitative results" width="100%">
+        </div>
+      </div>
+    </div>
+  </section>
+  <br><br><br><br>
+  
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <hr style="margin-top:0px">
+            <p class="text-justify"> Presentation of more illusion pictures generated by our method.</p>
+                <img class="img-fluid" src="img/case1.jpg" alt="example qualitative results" width="100%">
+                <br><br><br><br>
+                <img class="img-fluid" src="img/case2.jpg" alt="example qualitative results" width="100%">
+                <br><br><br><br>
+                <img class="img-fluid" src="img/case3.jpg" alt="example qualitative results" width="100%">
+                <br><br><br><br>
+                <img class="img-fluid" src="img/case4.jpg" alt="example qualitative results" width="100%">
+                <br><br><br><br>
+                <img class="img-fluid" src="img/case5.jpg" alt="example qualitative results" width="100%">
+                <br><br><br><br>
+                <img class="img-fluid" src="img/case6.jpg" alt="example qualitative results" width="100%">
+                <br><br><br><br>
+                <img class="img-fluid" src="img/case7.jpg" alt="example qualitative results" width="100%">
+                <br><br><br><br>
+                <img class="img-fluid" src="img/case8.jpg" alt="example qualitative results" width="100%">
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  
